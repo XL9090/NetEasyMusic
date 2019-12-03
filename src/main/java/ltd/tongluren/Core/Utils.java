@@ -11,6 +11,8 @@ import java.net.URL;
 public class Utils {
     /*下载好的文件存放的位置*/
     public static final String PATH="E:/MyMusic";
+    /*分类图片保存路径*/
+    public static final String IMG_PATH="E:/MyMusicImg";
     /*通过该url进行爬取*/
     public static final String BASE_URL="https://music.163.com/discover/playlist";
     /*音频列表页面*/
