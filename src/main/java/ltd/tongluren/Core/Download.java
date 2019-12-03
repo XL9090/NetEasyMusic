@@ -40,6 +40,7 @@ public class Download implements Runnable {
             HttpURLConnection urlConnection= (HttpURLConnection) url.openConnection();
             InputStream inputStream = urlConnection.getInputStream();
             byte[] read = Utils.read(inputStream);
+            inputStream.close();
             File file=new File(savePath);
             if(!file.exists()){
                 file.mkdir();
