@@ -15,13 +15,9 @@ import java.util.regex.Pattern;
 
 public class Main {
     /**
-     * 连接数据库把数据存储起来，
-     * 验证歌曲唯一，不重复
-     * 多次爬取分类页面
      * @param args
      * @throws IOException
      */
-
     public static void main(String[] args) throws IOException {
         new Handle().run();
     }
