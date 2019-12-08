@@ -1,6 +1,8 @@
 package ltd.tongluren.dao;
 
 
+import ltd.tongluren.Core.Utils;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -8,8 +10,8 @@ public class DBConnection {
 
     public static Connection  getNewConnection(){
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-           return DriverManager.getConnection("jdbc:mysql://localhost:3306/easy_music","root","123456");
+            Class.forName(Utils.getDriver());
+           return DriverManager.getConnection(Utils.getUrl(),Utils.getUserName(),Utils.getPwd());
         } catch (Exception e) {
             e.printStackTrace();
         }

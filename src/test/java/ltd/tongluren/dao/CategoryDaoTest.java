@@ -1,7 +1,9 @@
 package ltd.tongluren.dao;
 
+import ltd.tongluren.Core.Utils;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -27,4 +29,6 @@ class CategoryDaoTest {
         List<Map<String, Object>> maps = categoryDao.popNotDownload(DBConnection.getNewConnection(), 10);
         System.out.println(maps);
     }
+
+
 }
