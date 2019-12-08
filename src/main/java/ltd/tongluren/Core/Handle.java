@@ -15,9 +15,12 @@ import java.util.regex.Pattern;
 public class Handle {
     public static final ConcurrentLinkedQueue<String> Links = new ConcurrentLinkedQueue();
     public static final ConcurrentLinkedQueue<Music> Songs = new ConcurrentLinkedQueue();
-    public static final ExecutorService executes = Executors.newFixedThreadPool(8);
+    public static final ExecutorService executes = Executors.newFixedThreadPool(4);
 
     public void run() {
-        executes.execute(new Download(Utils.PATH,Utils.DOWNLOAD_URL));
+        executes.execute(new ParseLink());
+        executes.execute(new ParseMusic(Utils.LIST_URL));
+        executes.execute(new Download(Utils.getPATH(),Utils.DOWNLOAD_URL));
+        executes.execute(new Download(Utils.getPATH(),Utils.DOWNLOAD_URL));
     }
 }

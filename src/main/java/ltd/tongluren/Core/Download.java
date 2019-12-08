@@ -2,7 +2,6 @@ package ltd.tongluren.Core;
 
 import ltd.tongluren.dao.DBConnection;
 import ltd.tongluren.dao.MusicDao;
-import ltd.tongluren.model.Music;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -45,6 +44,11 @@ public class Download implements Runnable {
         }).start();
     }
 
+    /**
+     *
+     * @param savePath  file  save path
+     * @param downloadPath  download url prefix
+     */
     public Download( String savePath,String downloadPath ){
         this.savePath=savePath;
         this.downloadPath=downloadPath;
@@ -61,18 +65,18 @@ public class Download implements Runnable {
         MusicDao musicDao=new MusicDao();
         while (null!=musicQueue.peek()){
             Map<String, Object> id = musicQueue.poll();
-            download(this.savePath,this.downloadPath+id.get("id"),id.get("id").toString()+".mp3");
+            download(this.downloadPath+id.get("id"),id.get("id").toString()+".mp3");
             musicDao.setDownload(conn, id.get("id").toString());
             System.err.println(id.get("id")+"下载成功");
         }
-        System.out.println("-------------------"+musicQueue.size()+"----------------------");
-
     }
-
-
-    private  void download(String savePath,String linkUrl,String name){
+    /**
+     * @param downloadLink download link
+     * @param fileName   file name
+     */
+    public void download(String downloadLink,String fileName) {
         try {
-            URL url=new URL(linkUrl);
+            URL url=new URL(downloadLink);
             HttpURLConnection urlConnection= (HttpURLConnection) url.openConnection();
             InputStream inputStream = urlConnection.getInputStream();
             byte[] read = Utils.read(inputStream);
@@ -81,7 +85,7 @@ public class Download implements Runnable {
             if(!file.exists()){
                 file.mkdir();
             }
-            File musicFile=new File(savePath+"/"+name);
+            File musicFile=new File(savePath+"/"+fileName);
             FileOutputStream writeFile=new FileOutputStream(musicFile);
             writeFile.write(read);
             urlConnection.disconnect();

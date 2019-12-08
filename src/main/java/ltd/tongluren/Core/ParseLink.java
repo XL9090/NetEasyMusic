@@ -28,6 +28,11 @@ public class ParseLink implements Runnable {
         }
     }
 
+    /**
+     * parse a music list page,get music category id to save database
+     * @param rootStr
+     * @return
+     */
     private boolean parseLinks(String rootStr) {
         Pattern pattern = Pattern.compile("<img class=\"j-flag\" src=\"[\\S]+\"/>\n" +
                 "<a title=\"[\\S]+\" href=\"/playlist\\?id=[\\d]+\" class=\"msk\"></a>");
