@@ -1,8 +1,6 @@
 package ltd.tongluren.dao;
 
-import ltd.tongluren.model.Music;
 import ltd.tongluren.model.MusicCategory;
-import org.junit.Test;
 
 import java.sql.Connection;
 import java.util.List;

@@ -1,7 +1,6 @@
 package ltd.tongluren.dao;
 
 import java.sql.Connection;
-import java.util.Map;
 
 public class RelationshipDao extends AbstractBaseDao {
 
