@@ -16,17 +16,16 @@ public  abstract class AbstractBaseDao implements BaseDao {
         ResultSet rs=null;
         try {
             ps=conn.prepareStatement(sql);
-            for(int i=0;i<parms.length;i++){
-                ps.setObject(i,parms[i]);
+            for(int i=1;i<=parms.length;i++){
+                ps.setObject(i,parms[i-1]);
             }
             rs=ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             List<Map<String,Object>> retuenList=new ArrayList<>();
             while (rs.next()){
-                int index=1;
-                String name=rsmd.getColumnName(index);
                 Map<String,Object> item=new HashMap<>();
-                while (!"".equals(name)){
+                for (int i=1;i<=rsmd.getColumnCount();i++){
+                    String name=rsmd.getColumnName(i);
                     item.put(name,rs.getObject(name));
                 }
                 retuenList.add(item);

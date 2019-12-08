@@ -36,4 +36,13 @@ public class MusicCategory {
     public void setImgName(String imgName) {
         this.imgName = imgName;
     }
+
+    @Override
+    public String toString() {
+        return "MusicCategory{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", imgName='" + imgName + '\'' +
+                '}';
+    }
 }

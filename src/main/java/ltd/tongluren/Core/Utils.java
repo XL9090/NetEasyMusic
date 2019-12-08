@@ -14,7 +14,7 @@ public class Utils {
     /*分类图片保存路径*/
     public static final String IMG_PATH="E:/MyMusicImg";
     /*通过该url进行爬取*/
-    public static final String BASE_URL="https://music.163.com/discover/playlist";
+    public static final String BASE_URL="https://music.163.com/discover/playlist/?order=hot&cat=%E5%85%A8%E9%83%A8&limit=35&offset=";
     /*音频列表页面*/
     public static final String LIST_URL="https://music.163.com/playlist?id=";
     /*文件下载路劲，修改后面对应的id值来获取音频文件*/

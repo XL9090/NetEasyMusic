@@ -1,13 +1,17 @@
 package ltd.tongluren;
 
 
+import ltd.tongluren.Core.Handle;
+import ltd.tongluren.Core.ParseLink;
 import ltd.tongluren.Core.Utils;
 import ltd.tongluren.dao.DBConnection;
+import ltd.tongluren.model.Music;
+import org.junit.Test;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     /**
@@ -19,13 +23,12 @@ public class Main {
      */
 
     public static void main(String[] args) throws IOException {
-       // new Handle().run();
-        //String s = Utils.get("https://music.163.com/discover/playlist/?order=hot&cat=%E5%85%A8%E9%83%A8&limit=35&offset=105");
-        //System.out.println(s);
-        Connection connection = DBConnection.getConnection();
-        System.out.println(connection);
-        DBConnection.backConnection(connection);
-
+        new Handle().run();
     }
+
+
+
+
+
 
 }
